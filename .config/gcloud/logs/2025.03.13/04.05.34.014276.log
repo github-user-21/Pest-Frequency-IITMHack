@@ -1,0 +1,47 @@
+2025-03-13 04:05:34,184 DEBUG    root            Loaded Command Group: ['gcloud', 'compute']
+2025-03-13 04:05:34,317 DEBUG    root            Loaded Command Group: ['gcloud', 'compute', 'scp']
+2025-03-13 04:05:34,336 DEBUG    root            Running [gcloud.compute.scp] with arguments: [[[USER@]INSTANCE:]DEST: ".", [[USER@]INSTANCE:]SRC:1: "['aditya_tilak@instance-20250105-144000:backup_project.tar.gz']"]
+2025-03-13 04:05:34,337 WARNING  root            The private SSH key file for gcloud does not exist.
+2025-03-13 04:05:34,337 WARNING  root            The public SSH key file for gcloud does not exist.
+2025-03-13 04:05:34,338 WARNING  root            You do not have an SSH key for gcloud.
+2025-03-13 04:05:34,338 WARNING  root            SSH keygen will be executed to generate a key.
+2025-03-13 04:05:34,338 DEBUG    root            Running command [/usr/bin/ssh-keygen -t rsa -f /home/aditya_tilak/.ssh/google_compute_engine].
+2025-03-13 04:05:34,338 DEBUG    root            Executing command: ['/usr/bin/ssh-keygen', '-t', 'rsa', '-f', '/home/aditya_tilak/.ssh/google_compute_engine']
+2025-03-13 04:05:39,721 DEBUG    google.auth.transport.requests Making request: GET http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/907161977227-compute@developer.gserviceaccount.com/?recursive=true
+2025-03-13 04:05:39,727 DEBUG    urllib3.connectionpool Starting new HTTP connection (1): metadata.google.internal:80
+2025-03-13 04:05:39,730 DEBUG    urllib3.connectionpool http://metadata.google.internal:80 "GET /computeMetadata/v1/instance/service-accounts/907161977227-compute@developer.gserviceaccount.com/?recursive=true HTTP/1.1" 200 197
+2025-03-13 04:05:39,755 DEBUG    google.auth.transport.requests Making request: GET http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/907161977227-compute@developer.gserviceaccount.com/token
+2025-03-13 04:05:39,774 DEBUG    urllib3.connectionpool http://metadata.google.internal:80 "GET /computeMetadata/v1/instance/service-accounts/907161977227-compute@developer.gserviceaccount.com/token HTTP/1.1" 200 869
+2025-03-13 04:05:43,270 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): compute.googleapis.com:443
+2025-03-13 04:05:43,640 DEBUG    urllib3.connectionpool https://compute.googleapis.com:443 "GET /compute/v1/projects/cropcrafters-project/zones/asia-south1-c/instances/instance-20250105-144000?alt=json HTTP/1.1" 403 None
+2025-03-13 04:05:43,651 DEBUG    root            Chosen display Format:list[title="Could not fetch resource:",always-display-title]
+2025-03-13 04:05:43,652 DEBUG    root            (gcloud.compute.scp) Could not fetch resource:
+ - Request had insufficient authentication scopes.
+Traceback (most recent call last):
+  File "/snap/google-cloud-cli/293/lib/googlecloudsdk/calliope/cli.py", line 998, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/snap/google-cloud-cli/293/lib/googlecloudsdk/calliope/backend.py", line 843, in Run
+    resources = command_instance.Run(args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/snap/google-cloud-cli/293/lib/surface/compute/scp.py", line 188, in Run
+    return scp_helper.RunScp(
+           ^^^^^^^^^^^^^^^^^^
+  File "/snap/google-cloud-cli/293/lib/googlecloudsdk/command_lib/compute/scp_utils.py", line 137, in RunScp
+    instance = self.GetInstance(compute_client, instance_ref)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/snap/google-cloud-cli/293/lib/googlecloudsdk/command_lib/compute/ssh_utils.py", line 533, in GetInstance
+    return client.MakeRequests([request])[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/snap/google-cloud-cli/293/lib/googlecloudsdk/api_lib/compute/client_adapter.py", line 145, in MakeRequests
+    utils.RaiseToolException(
+  File "/snap/google-cloud-cli/293/lib/googlecloudsdk/api_lib/compute/utils.py", line 139, in RaiseToolException
+    RaiseException(problems, calliope_exceptions.ToolException, error_message)
+  File "/snap/google-cloud-cli/293/lib/googlecloudsdk/api_lib/compute/utils.py", line 148, in RaiseException
+    raise exception(
+googlecloudsdk.calliope.exceptions.ToolException: Could not fetch resource:
+ - Request had insufficient authentication scopes.
+
+2025-03-13 04:05:43,690 ERROR    root            (gcloud.compute.scp) Could not fetch resource:
+ - Request had insufficient authentication scopes.
+

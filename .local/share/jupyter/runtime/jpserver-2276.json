@@ -1,0 +1,13 @@
+{
+  "base_url": "/",
+  "hostname": "0.0.0.0",
+  "password": false,
+  "pid": 2276,
+  "port": 8888,
+  "root_dir": "/home/aditya_tilak/dataset",
+  "secure": false,
+  "sock": "",
+  "token": "1c545d6bb6c55eabc1e73bcfc38d7d11f93e9c7d5f079ee6",
+  "url": "http://instance-20250105-144000:8888/",
+  "version": "2.15.0"
+}

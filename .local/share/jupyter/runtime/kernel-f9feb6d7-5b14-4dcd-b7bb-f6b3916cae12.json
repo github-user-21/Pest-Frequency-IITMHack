@@ -1,0 +1,13 @@
+{
+  "shell_port": 53789,
+  "iopub_port": 35325,
+  "stdin_port": 47121,
+  "control_port": 48617,
+  "hb_port": 35739,
+  "ip": "127.0.0.1",
+  "key": "7e80f0c9-2715d4fad495108b5dba134f",
+  "transport": "tcp",
+  "signature_scheme": "hmac-sha256",
+  "kernel_name": "python3",
+  "jupyter_session": "/home/aditya_tilak/dataset/second.ipynb"
+}
